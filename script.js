@@ -44,12 +44,12 @@ const projects = {
     result: 'Cada proyecto se adapta al sector, objetivos y presupuesto disponible, con una base preparada para crecer y mantenerse en el tiempo.'
   },
   tienda: {
-    title: 'Tienda online de arte',
-    category: 'ECOMMERCE / ARTE',
-    context: 'Proyecto de tienda online para presentar cuadros, dibujos y obra artística con una navegación visual y orientada al catálogo.',
-    contribution: 'Desarrollo de catálogo, estructura de producto, preparación de contenidos, inventario y base para funcionalidades de ecommerce.',
+    title: 'Tiendas online y ecommerce',
+    category: 'TIENDAS ONLINE / ECOMMERCE',
+    context: 'Proyecto de ecommerce para presentar y vender productos con un catálogo visual, navegación clara y una experiencia de compra sencilla.',
+    contribution: 'Diseño de catálogo y fichas de producto, organización de contenidos e inventario y configuración de la base de la tienda según las necesidades del negocio.',
     tags: ['WordPress', 'PHP', 'Ecommerce', 'HTML', 'CSS', 'JavaScript'],
-    result: 'Una base visual para enseñar obra, ordenar productos y facilitar el contacto o la venta online según la evolución del proyecto.'
+    result: 'Una tienda online adaptable a distintos sectores, preparada para mostrar productos y facilitar la compra desde cualquier dispositivo.'
   },
   webdj: {
     title: 'Web para profesionales de eventos',
