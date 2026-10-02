@@ -1,0 +1,13 @@
+.legal-page{max-width:880px;padding-top:64px;padding-bottom:90px}
+.legal-page>.text-link{margin-bottom:55px}
+.legal-page .eyebrow{margin-top:46px;margin-bottom:18px}
+.legal-page h1{font-size:clamp(2.8rem,7vw,5rem);line-height:1.02;letter-spacing:-.06em;margin:0 0 24px}
+.legal-page h2{font-size:clamp(1.45rem,3vw,2rem);line-height:1.2;letter-spacing:-.035em;margin:42px 0 13px}
+.legal-page p,.legal-page dd{font-size:16px;line-height:1.75;color:var(--muted)}
+.legal-page a:not(.text-link){text-decoration:underline;text-decoration-color:#98a4bd;text-underline-offset:3px}
+.legal-page dl{display:grid;grid-template-columns:minmax(130px,200px) 1fr;gap:10px 22px;padding:22px;background:#eaeae5;border-radius:12px}
+.legal-page dt{font-size:14px;font-weight:700;color:var(--ink)}
+.legal-page dd{margin:0;overflow-wrap:anywhere}
+.legal-page .legal-updated{font-size:13px;margin-top:40px}
+.legal-page .legal-links{margin-top:28px}
+@media(max-width:600px){.legal-page{padding-top:36px;padding-bottom:55px}.legal-page>.text-link{margin-bottom:36px}.legal-page dl{grid-template-columns:1fr;gap:4px;padding:18px}.legal-page dd{margin-bottom:12px}.legal-page dd:last-child{margin-bottom:0}.legal-page p,.legal-page dd{font-size:15px}}
