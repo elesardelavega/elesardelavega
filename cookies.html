@@ -7,16 +7,22 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; frame-src 'none'; img-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'none'; upgrade-insecure-requests">
   <meta name="description" content="Información sobre las cookies y tecnologías de almacenamiento utilizadas por este sitio.">
-  <link rel="canonical" href="./">
+  <link rel="canonical" href="cookies.html">
   <link rel="icon" href="assets/favicon.ico" sizes="any">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="legal.css">
+  <link rel="stylesheet" href="cookie-consent.css">
   <script src="site-config.js" defer></script>
   <script src="legal.js" defer></script>
   <title>Política de cookies | Elesar De La Vega</title>
 </head>
 <body>
-  <main class="legal-page section-shell">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header legal-header">
+    <a class="brand" href="./" aria-label="Elesar de la Vega, inicio"><span class="brand-mark" aria-hidden="true"><img src="assets/logo-e-small.png" width="128" height="128" alt=""><span>.</span></span><span>Elesar de la Vega<small>Desarrollo web &amp; tecnología</small></span></a>
+    <nav aria-label="Navegación principal"><a href="./#servicios">Servicios</a><a href="./#proyectos">Proyectos</a><a class="nav-contact" href="./#contacto">Contacto <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="contenido" class="legal-page section-shell">
     <a class="text-link" href="./">← Volver a la web</a>
     <p class="eyebrow">TRANSPARENCIA</p>
     <h1>Política de cookies</h1>
@@ -27,8 +33,14 @@
     <p>Si pulsas un enlace a WhatsApp, email u otro servicio, pasarás a un entorno de un tercero que puede aplicar sus propias cookies y políticas. Revisa la información de ese proveedor. La visita a este sitio por sí sola no carga botones sociales ni contenido incrustado de esos servicios.</p>
     <h2>Cómo controlar cookies</h2>
     <p>Puedes borrar o bloquear cookies desde los ajustes de tu navegador. Si en el futuro se incorporan analítica, publicidad, vídeos incrustados u otras tecnologías no necesarias, se actualizará esta política y se solicitará consentimiento antes de activarlas cuando la normativa lo requiera.</p>
+    <p>La elección del panel de consentimiento se guarda únicamente en el almacenamiento local del navegador para recordar si aceptaste, rechazaste o configuraste categorías opcionales. Esta preferencia no se utiliza para identificarte ni para publicidad.</p>
+    <h2>Gestionar preferencias</h2>
+    <p>Puedes volver a abrir el panel en cualquier momento con el enlace «Configurar cookies» del pie de página.</p>
     <p class="legal-updated">Información revisada el 2 de octubre de 2026.</p>
     <nav class="legal-links" aria-label="Políticas"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a></nav>
   </main>
+  <footer class="site-footer section-shell"><p>© 2026 <span data-config="owner">Elesar De La Vega</span></p><p>Desarrollo web · soporte informático · Zaragoza y Aragón</p><nav class="legal-links" aria-label="Información legal"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><button class="cookie-settings-link" type="button" data-cookie-settings>Configurar cookies</button></nav><a href="./">Volver a la web ↑</a></footer>
+  <div id="cookie-consent-root"></div>
+  <script src="cookie-consent.js" defer></script>
 </body>
 </html>
