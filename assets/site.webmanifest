@@ -1,0 +1,21 @@
+{
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "32x32",
+      "src": "favicon-32x32.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "180x180",
+      "src": "apple-touch-icon.png",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./",
+  "theme_color": "#2449ef",
+  "description": "Desarrollo web y soporte informático en Zaragoza y Aragón",
+  "short_name": "Elesar",
+  "background_color": "#f4f3ef",
+  "name": "Elesar de la Vega"
+}

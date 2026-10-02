@@ -1,0 +1,5 @@
+_work/
+.local-server.cjs
+.netlifyignore
+Thumbs.db
+.DS_Store
