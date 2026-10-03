@@ -6,12 +6,14 @@
   if (!root) return;
 
   const readConsent = () => {
-    try {
-      const value = JSON.parse(localStorage.getItem(KEY));
-      return value && value.version === 1 ? value : null;
-    } catch {
-      return null;
+    for (const storageName of ['localStorage', 'sessionStorage']) {
+      try {
+        const storage = window[storageName];
+        const value = JSON.parse(storage.getItem(KEY));
+        if (value && value.version === 1) return value;
+      } catch { /* Algunos navegadores privados bloquean el almacenamiento web. */ }
     }
+    return null;
   };
 
   root.innerHTML = `
@@ -33,20 +35,31 @@
   const dialog = root.querySelector('.cookie-preferences');
   const analytics = dialog.querySelector('[name="analytics"]');
   const marketing = dialog.querySelector('[name="marketing"]');
+  const openDialog = (target) => {
+    if (typeof target.showModal === 'function') target.showModal();
+    else target.setAttribute('open', '');
+  };
+  const closeDialog = (target) => {
+    if (typeof target.close === 'function' && target.open) target.close();
+    else target.removeAttribute('open');
+  };
 
   const save = (analyticsValue, marketingValue, choice) => {
     const consent = { version: 1, necessary: true, analytics: Boolean(analyticsValue), marketing: Boolean(marketingValue), choice, updatedAt: new Date().toISOString() };
-    try { localStorage.setItem(KEY, JSON.stringify(consent)); } catch { /* La navegación sigue disponible si el navegador bloquea el almacenamiento. */ }
-    if (banner.open) banner.close();
-    if (dialog.open) dialog.close();
+    const serialized = JSON.stringify(consent);
+    for (const storageName of ['localStorage', 'sessionStorage']) {
+      try { window[storageName].setItem(KEY, serialized); } catch { /* Se intenta el almacenamiento alternativo. */ }
+    }
+    closeDialog(banner);
+    closeDialog(dialog);
   };
 
   const openPreferences = () => {
     const current = readConsent();
     analytics.checked = Boolean(current?.analytics);
     marketing.checked = Boolean(current?.marketing);
-    if (banner.open) banner.close();
-    dialog.showModal();
+    closeDialog(banner);
+    openDialog(dialog);
     dialog.querySelector('[name="analytics"]').focus();
   };
 
@@ -54,12 +67,15 @@
   root.querySelectorAll('[data-cookie-reject]').forEach((button) => button.addEventListener('click', () => save(false, false, 'rejected')));
   root.querySelector('[data-cookie-configure]').addEventListener('click', openPreferences);
   root.querySelector('[data-cookie-save]').addEventListener('click', () => save(analytics.checked, marketing.checked, 'custom'));
-  const showBanner = () => { if (!banner.open) banner.showModal(); };
-  root.querySelector('[data-cookie-close]').addEventListener('click', () => { dialog.close(); showBanner(); });
+  const showBanner = () => { if (!readConsent() && !banner.open) openDialog(banner); };
+  root.querySelector('[data-cookie-close]').addEventListener('click', () => { closeDialog(dialog); showBanner(); });
   document.querySelectorAll('[data-cookie-settings]').forEach((button) => button.addEventListener('click', openPreferences));
-  dialog.addEventListener('click', (event) => { if (event.target === dialog) { dialog.close(); showBanner(); } });
+  dialog.addEventListener('click', (event) => { if (event.target === dialog) { closeDialog(dialog); showBanner(); } });
   dialog.addEventListener('cancel', (event) => { event.preventDefault(); });
   banner.addEventListener('cancel', (event) => { event.preventDefault(); });
 
-  if (!readConsent()) showBanner();
+  if (!readConsent()) {
+    // Deja que la página termine de mostrarse antes de presentar el diálogo.
+    window.setTimeout(showBanner, 350);
+  }
 })();
